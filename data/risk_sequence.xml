@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_risk_management" model="ir.sequence">
+        <field name="name">Risk Management Sequence</field>
+        <field name="code">risk.management</field>
+        <field name="prefix">RISK-</field>
+        <field name="padding">4</field>
+    </record>
+</odoo>

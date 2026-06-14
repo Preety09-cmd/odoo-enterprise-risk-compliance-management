@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_risk_tree" model="ir.ui.view">
+        <field name="name">risk.management.tree</field>
+        <field name="model">risk.management</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="risk_id"/>
+                <field name="title"/>
+                <field name="owner_id"/>
+                <field name="risk_score"/>
+                <field name="priority"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_risk_kanban" model="ir.ui.view">
+        <field name="name">risk.management.kanban</field>
+        <field name="model">risk.management</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="status">
+                <field name="risk_id"/>
+                <field name="title"/>
+                <field name="owner_id"/>
+                <field name="risk_score"/>
+                <field name="priority"/>
+                <field name="status"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong>
+                                <field name="title"/>
+                            </strong>
+                            <div>
+                                <field name="risk_id"/>
+                            </div>
+                            <div>
+                                Owner: <field name="owner_id"/>
+                            </div>
+                            <div>
+                                Score: <field name="risk_score"/>
+                            </div>
+                            <div>
+                                Priority: <field name="priority"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_risk_graph" model="ir.ui.view">
+        <field name="name">risk.management.graph</field>
+        <field name="model">risk.management</field>
+        <field name="arch" type="xml">
+            <graph string="Risk Analysis" type="bar">
+                <field name="status"/>
+                <field name="risk_score" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_risk_pivot" model="ir.ui.view">
+        <field name="name">risk.management.pivot</field>
+        <field name="model">risk.management</field>
+        <field name="arch" type="xml">
+            <pivot string="Risk Summary">
+                <field name="priority" type="row"/>
+                <field name="status" type="col"/>
+                <field name="risk_score" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_risk_form_v2" model="ir.ui.view">
+        <field name="name">risk.management.form</field>
+        <field name="model">risk.management</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_open" type="object" string="Open" class="btn-primary"
+                            invisible="status != 'draft'"/>
+                    <button name="action_review" type="object" string="Under Review"
+                            invisible="status != 'open'"/>
+                    <button name="action_mitigate" type="object" string="Mitigate"
+                            invisible="status != 'review'"/>
+                    <button name="action_close" type="object" string="Close"
+                            invisible="status != 'mitigated'"/>
+                    <button name="action_reset_to_draft" type="object" string="Reset to Draft"
+                            invisible="status == 'draft'"/>
+                    <button name="action_print_risk_report"
+                            type="object"
+                            string="Print Risk Report"/>
+                    
+                    <button name="action_approve"
+                            type="object"
+                            string="Approve"
+                            class="btn-success"
+                            invisible="status != 'review' or approval_status != 'pending'"/>
+
+                    <button name="action_reject"
+                            type="object"
+                            string="Reject"
+                            class="btn-danger"
+                            invisible="status != 'review' or approval_status != 'pending'"/>
+
+                    <field name="status"
+                            widget="statusbar"
+                            statusbar_visible="draft,open,review,mitigated,closed"/>               
+                </header>
+
+                <sheet>
+                    <group>
+                        <field name="risk_id"/>
+                        <field name="title"/>
+                        <field name="category_id"/>
+                        <field name="owner_id"/>
+                    </group>
+
+                    <group>
+                        <field name="impact"/>
+                        <field name="likelihood"/>
+                        <field name="risk_score" readonly="1"/>
+                        <field name="priority" readonly="1"/>
+                    </group>
+
+                    <group>
+                        <field name="due_date"/>
+                    </group>
+
+                    <group string="Risk Treatment">
+                        <field name="treatment_strategy"/>
+                        <field name="residual_risk_score"/>
+                        <field name="approval_status" readonly="1"/>
+                        <field name="review_date"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        
+                        <page string="Mitigation Plan">
+                            <field name="mitigation_plan"/>
+                        </page>
+                        
+                        <page string="Evidence Attachments">
+                            <field name="attachment_ids" widget="many2many_binary"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter>
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </chatter>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_risk_summary_report" model="ir.actions.report">
+        <field name="name">Risk Summary Report</field>
+        <field name="model">risk.management</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">risk_management.risk_summary_template</field>
+        <field name="report_file">risk_management.risk_summary_template</field>
+        <field name="binding_model_id" ref="model_risk_management"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="risk_summary_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="risk">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1 style="color:#4B0082;">
+                        Enterprise Risk &amp; Compliance Management
+                        </h1>
+                        <p>
+                        Prepared by: Preety Prasad<br/>
+                        Location: Turku, Finland<br/>
+                        Module: Risk Management Dashboard
+                        </p>
+
+                        <hr/>
+                        <h2>Risk Summary Report</h2>
+
+                        <p><strong>Risk ID:</strong> <span t-field="risk.risk_id"/></p>
+                        <p><strong>Title:</strong> <span t-field="risk.title"/></p>
+                        <p><strong>Category:</strong> <span t-field="risk.category_id.name"/></p>
+                        <p><strong>Risk Owner:</strong> <span t-field="risk.owner_id.name"/></p>
+                        <p><strong>Status:</strong> <span t-field="risk.status"/></p>
+
+                        <hr/>
+
+                        <h3>Risk Assessment</h3>
+                        <p><strong>Impact:</strong> <span t-field="risk.impact"/></p>
+                        <p><strong>Likelihood:</strong> <span t-field="risk.likelihood"/></p>
+                        <p><strong>Risk Score:</strong> <span t-field="risk.risk_score"/></p>
+                        <p><strong>Priority:</strong> <span t-field="risk.priority"/></p>
+
+                        <hr/>
+
+                        <h3>Description</h3>
+                        <p t-field="risk.description"/>
+
+                        <h3>Mitigation Plan</h3>
+                        <p t-field="risk.mitigation_plan"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

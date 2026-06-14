@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_risk_management" model="ir.actions.act_window">
+        <field name="name">Risks</field>
+        <field name="res_model">risk.management</field>
+        <field name="view_mode">kanban,tree,form,graph,pivot</field>
+    </record>
+
+    <record id="action_risk_category" model="ir.actions.act_window">
+        <field name="name">Categories</field>
+        <field name="res_model">risk.management.category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_risk_dashboard" model="ir.actions.act_window">
+        <field name="name">Risk Dashboard</field>
+        <field name="res_model">risk.management</field>
+        <field name="view_mode">graph,pivot,kanban,tree,form</field>
+        <field name="context">{'group_by': 'status'}</field>
+    </record>
+
+    <menuitem id="menu_risk_root"
+              name="Risk Management"
+              sequence="10"/>
+
+    <menuitem id="menu_risk"
+              name="Risks"
+              parent="menu_risk_root"
+              action="action_risk_management"/>
+
+    <menuitem id="menu_risk_category"
+              name="Categories"
+              parent="menu_risk_root"
+              action="action_risk_category"/>
+<!--
+    <menuitem id="menu_risk_dashboard"
+              name="Dashboard"
+              parent="menu_risk_root"
+              action="action_risk_dashboard"
+              sequence="30"/>
+-->
+    <menuitem id="menu_risk_heatmap"
+              name="Risk Score Analysis"
+              parent="menu_risk_root"
+              action="action_risk_heatmap"/>
+</odoo>

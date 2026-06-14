@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_risk_management,risk.management,model_risk_management,,1,1,1,1
+access_risk_category,risk.management.category,model_risk_management_category,,1,1,1,1

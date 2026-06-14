@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_risk_heatmap_graph" model="ir.ui.view">
+        <field name="name">risk.management.heatmap.graph</field>
+        <field name="model">risk.management</field>
+        <field name="arch" type="xml">
+            <graph string="Risk Heat Map" type="bar">
+                <field name="impact" type="row"/>
+                <field name="likelihood" type="col"/>
+                <field name="id" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_risk_heatmap" model="ir.actions.act_window">
+        <field name="name">Risk Score Analysis</field>
+        <field name="res_model">risk.management</field>
+        <field name="view_mode">graph</field>
+    </record>
+
+</odoo>
