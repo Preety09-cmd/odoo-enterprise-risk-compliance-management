@@ -12,25 +12,25 @@ This project was developed as a portfolio demonstration of enterprise risk manag
 
 Organizations often manage risks using spreadsheets, emails, and disconnected documentation, resulting in:
 
-Limited visibility into enterprise risks
-Inconsistent risk assessment practices
-Lack of accountability and ownership
-Missing audit trails
-Difficulty tracking mitigation activities
-Challenges during compliance audits
+- Limited visibility into enterprise risks
+- Inconsistent risk assessment practices
+- Lack of accountability and ownership
+- Missing audit trails
+- Difficulty tracking mitigation activities
+- Challenges during compliance audits
 
 This module addresses these challenges by providing a centralized and auditable risk management platform.
 
 ## Key Features
 
-## Risk Register Management
+### Risk Register Management
 Unique risk identification
 Risk categorization
 Risk ownership assignment
 Risk description and mitigation planning
 Due date tracking
 
-## Risk Assessment Engine
+### Risk Assessment Engine
 
 The module automatically evaluates risk severity using:
 
@@ -43,7 +43,7 @@ Likelihood assessment
 Automated risk score calculation
 Automatic priority classification
 
-## Risk Lifecycle Workflow
+### Risk Lifecycle Workflow
 
 The solution supports a structured risk management lifecycle:
 
@@ -51,7 +51,7 @@ Draft → Open → Under Review → Mitigated → Closed
 
 This workflow ensures consistent risk handling and governance oversight.
 
-## Risk Treatment Management
+### Risk Treatment Management
 
 Supported treatment strategies:
 
@@ -66,7 +66,7 @@ Residual risk assessment
 Review scheduling
 Treatment documentation
 
-## Approval Workflow
+### Approval Workflow
 
 A formal review and approval mechanism allows stakeholders to:
 
@@ -75,23 +75,23 @@ Reject treatment decisions
 Track approval status
 Maintain review records
 
-## Activity & Review Tracking
+### Activity & Review Tracking
 
 The module automatically generates review activities and reminders to support ongoing risk monitoring and governance.
 
-## Evidence & Attachment Management
+### Evidence & Attachment Management
 
 Supporting documentation can be attached directly to risks, including:
 
-Security Review Reports
-Risk Acceptance Forms
-Compliance Assessments
-Audit Evidence
-Policy Documents
+- Security Review Reports
+- Risk Acceptance Forms
+- Compliance Assessments
+- Audit Evidence
+- Policy Documents
 
 This creates an auditable record of risk-related decisions.
 
-## Reporting & Analytics
+### Reporting & Analytics
 
 Built-in reporting capabilities include:
 
@@ -103,23 +103,15 @@ Pivot Analysis
 
 ## Solution Architecture
 
-Users
-│
-▼
-Risk Register
-│
-▼
-Risk Assessment
-(Impact × Likelihood)
-│
-▼
-Treatment & Approval
-│
-▼
-Evidence Management
-│
-▼
-Reporting & Analytics
+```mermaid
+flowchart TD
+    A[Users] --> B[Risk Register Management]
+    B --> C[Risk Assessment Engine]
+    C --> D[Risk Score Calculation<br/>Impact × Likelihood]
+    D --> E[Treatment & Approval Workflow]
+    E --> F[Evidence Management]
+    F --> G[Reporting & Analytics]
+```
 
 ## Screenshots
 
@@ -131,8 +123,9 @@ Reporting & Analytics
 
 ![Risk Register](screenshots/Risk_Treatment_&_Approval_Workflow.png)
 
-### Risk Approval Workflow
+### Risk Approve/Reject Workflow
 
+![Risk Register](screenshots/risk-approval-workflow.png)
 
 ### Evidence Management
 
@@ -194,11 +187,11 @@ University of Turku, Finland
 
 Research Areas:
 
-Cybersecurity Governance
-Enterprise Risk Management
-Explainable Artificial Intelligence (XAI)
-AI-enabled Security Architectures
-Software-Defined Networking Security
+- Cybersecurity Governance
+- Enterprise Risk Management
+- Explainable Artificial Intelligence (XAI)
+- AI-enabled Security Architectures
+- Software-Defined Networking Security
 
 PhD Researcher in Cybersecurity
 University of Turku, Finland
