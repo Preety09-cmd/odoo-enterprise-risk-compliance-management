@@ -192,6 +192,3 @@ Research Areas:
 - Explainable Artificial Intelligence (XAI)
 - AI-enabled Security Architectures
 - Software-Defined Networking Security
-
-PhD Researcher in Cybersecurity
-University of Turku, Finland
