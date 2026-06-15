@@ -137,7 +137,7 @@ flowchart TD
 
 ### PDF Risk Reporting
 
-![Risk Register](screenshots/Risk_Summary_Report.png)
+![Risk Register](screenshots/Risk_Summary_Report_new.png)
 
 ## Technologies Used
 
