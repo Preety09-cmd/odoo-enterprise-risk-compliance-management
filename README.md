@@ -55,25 +55,25 @@ This workflow ensures consistent risk handling and governance oversight.
 
 Supported treatment strategies:
 
-Accept
-Mitigate
-Transfer
-Avoid
+- Accept
+- Mitigate
+- Transfer
+- Avoid
 
 Additional capabilities:
 
-Residual risk assessment
-Review scheduling
-Treatment documentation
+- Residual risk assessment
+- Review scheduling
+- Treatment documentation
 
 ### Approval Workflow
 
 A formal review and approval mechanism allows stakeholders to:
 
-Approve treatment decisions
-Reject treatment decisions
-Track approval status
-Maintain review records
+- Approve treatment decisions
+- Reject treatment decisions
+- Track approval status
+- Maintain review records
 
 ### Activity & Review Tracking
 
@@ -95,11 +95,11 @@ This creates an auditable record of risk-related decisions.
 
 Built-in reporting capabilities include:
 
-PDF Risk Reports
-Risk Register Views
-Risk Score Analysis
-Dashboard Visualizations
-Pivot Analysis
+- PDF Risk Reports
+- Risk Register Views
+- Risk Score Analysis
+- Dashboard Visualizations
+- Pivot Analysis
 
 ## Solution Architecture
 
